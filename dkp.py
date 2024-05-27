@@ -54,7 +54,8 @@ def main():
 	interpreters = collect_kernel_interpreters()
 
 	parser = argparse.ArgumentParser(
-		"direkt kernel program-runner",
+		"dkp",
+		description="direkt kernel program-runner",
 	)
 
 	parser.add_argument(
@@ -72,6 +73,14 @@ def main():
 
 		run_pip(pip_path, pip_args)
 
+	else:
+		kernellist = ", ".join(interpreters.keys())
+		raise RuntimeWarning(f"Kernel {args.kernel} was not found. There are\n{kernellist}")
+
 
 if __name__=="__main__":
-	main()
+	try:
+		main()
+	except Warning as w:
+		print(f"Ohh, we ran into a problem: {str(w)}")
+		quit(-1)
