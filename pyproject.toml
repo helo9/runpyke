@@ -3,10 +3,10 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dkp"
-version = "202405"
+name = "runpyke"
+version = "202407"
 requires-python = ">= 3.11"
 description = "Allow running pip for python interpreter defined by jupyter kernel."
 
 [project.scripts]
-dkp = "dkp:main"
+runpyke = "runpyke:main"
